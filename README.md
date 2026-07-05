@@ -66,7 +66,7 @@ Press **Q** to exit.
 
 Watch the complete demo below.
 
-[▶ Watch Demo](demo.mp4)
+[▶ Watch Demo](res/demo.mp4)
 
 ---
 

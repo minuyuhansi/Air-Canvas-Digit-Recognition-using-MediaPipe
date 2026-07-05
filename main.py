@@ -60,7 +60,6 @@ with GestureRecognizer.create_from_options(options) as recognizer:
         # frame = cv2.flip(frame, 1)
         h, w, _ = frame.shape
         
-        # Create a blank black canvas matching your screen size for clean AI tracking
         canvas = np.zeros((h, w), dtype=np.uint8)
 
         rgbFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -74,7 +73,6 @@ with GestureRecognizer.create_from_options(options) as recognizer:
             if latest_result.gestures and len(latest_result.gestures) > 0:
                 gesture_name = latest_result.gestures[0][0].category_name
             
-            # Draw UI Information Screen text
             cv2.putText(frame, f"Gesture: {gesture_name}", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (163, 35, 3), 2, cv2.LINE_AA)
             cv2.putText(frame, f"Predicted Digit: {detected_number}", (20, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 2, cv2.LINE_AA)
 
@@ -98,7 +96,6 @@ with GestureRecognizer.create_from_options(options) as recognizer:
                 # Calculate physical finger gap space
                 finger_distance = math.sqrt((ix - mx)**2 + (iy - my)**2)
 
-                # DRAW TRIGGER: Fingers apart = Draw. Fingers pinched together = Move safely.
                 if finger_distance > 40 and (gesture_name == "Pointing_Up" or iy < my - 20):
                     detected_number = "Analyzing..."
                     cv2.circle(frame, (ix, iy), 6, (0, 255, 255), -1) 
@@ -117,7 +114,6 @@ with GestureRecognizer.create_from_options(options) as recognizer:
                 if len(drawing_points) > 0 and drawing_points[-1] is not None:
                     drawing_points.append(None)
 
-        # Re-render drawn strokes across both screens
         for i in range(1, len(drawing_points)):
             if drawing_points[i - 1] is None or drawing_points[i] is None: 
                 continue
