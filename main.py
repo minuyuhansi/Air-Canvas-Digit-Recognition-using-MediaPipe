@@ -39,7 +39,11 @@ except Exception as e:
     exit()
 
 drawing_points = []
-webCam = cv2.VideoCapture(0)
+webCam = cv2.VideoCapture(1)
+
+webCam.set(cv2.CAP_PROP_FRAME_WIDTH,1200)
+webCam.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+
 frame_counter = 0
 MOVEMENT_THRESHOLD = 6 
 detected_number = "Waiting..."
@@ -53,7 +57,7 @@ with GestureRecognizer.create_from_options(options) as recognizer:
         if not success: 
             continue
 
-        frame = cv2.flip(frame, 1)
+        # frame = cv2.flip(frame, 1)
         h, w, _ = frame.shape
         
         # Create a blank black canvas matching your screen size for clean AI tracking

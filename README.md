@@ -60,29 +60,13 @@ Press **Q** to exit.
 
 ---
 
-## 📸 Screenshots
-
-### Home Screen
-
-<img src="images/home.png" width="700">
-
----
-
 ### Drawing Digits
 
-<img src="images/drawing.png" width="700">
+## 🎥 Demo Video
 
----
+Watch the complete demo below.
 
-### Prediction
-
-<img src="images/prediction.png" width="700">
-
----
-
-### Clear Canvas
-
-<img src="images/clear.png" width="700">
+[▶ Watch Demo](demo.mp4)
 
 ---
 
